@@ -1,0 +1,40 @@
+<html>
+<head>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type='text/javascript'>
+	google.load('visualization', '1', {'packages':['annotationchart']});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+
+		var data = new google.visualization.DataTable();
+		data.addColumn('date', 'timestamp');
+		data.addColumn('number', 's10_s-dv-value');
+		data.addColumn('number', 's100_s-dv-value');
+		data.addColumn('number', 's1000_s-dv-value');
+		data.addColumn('number', 's10000_s-dv-value');
+		data.addColumn('number', 's100000_s-dv-value');
+		data.addColumn('number', 's1000000_s-dv-value');
+		data.addColumn('number', 's10_s-enum-value');
+		data.addColumn('number', 's100_s-enum-value');
+		data.addColumn('number', 's1000_s-enum-value');
+		data.addColumn('number', 's10000_s-enum-value');
+		data.addColumn('number', 's100000_s-enum-value');
+		data.addColumn('number', 's1000000_s-enum-value');
+		data.addRows([
+			[new Date(1499212800000),16.2858064516,16.2966666667,16.3184946237,16.3010752688,16.4203225806,16.5191397849,16.2983870968,16.2803225806,16.3230107527,16.3423655914,16.4497849462,16.5168817204],
+			[new Date(1499299200000),10.9460215054,11.7217204301,11.6551612903,11.6167741935,11.9533333333,12.4010752688,11.916344086,11.194516129,11.1613978495,11.2923655914,11.6294623656,11.6409677419],
+		]);
+		var chart = new google.visualization.AnnotationChart(document.getElementById('chart_div'));
+		var options = {
+		width: "1080",
+		title: "NewChart",
+		height: "720",
+		};
+		chart.draw(data, options);
+	}
+	</script>
+	</head>
+	<body>
+		<div id='chart_div' style='width: 900px; height: 500px;'></div>
+	</body>
+</html>
